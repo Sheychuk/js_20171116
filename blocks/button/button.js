@@ -1,5 +1,7 @@
 import Block from '../block';
 
+import template from './button.pug';
+
 export default class Button extends Block {
 
     constructor(node, options = {}) {
@@ -7,10 +9,9 @@ export default class Button extends Block {
     }
 
     render() {
-        this.node.innerHTML = `
-        <button class="button">
-            ${this.options.text}
-        </button>`;
+        this.node.innerHTML = template({
+            text: this.options.text
+        });
     }
 
 }

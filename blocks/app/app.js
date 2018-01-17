@@ -1,8 +1,5 @@
-import Button from '../button/button';
 import Block from '../block';
-import Textarea from '../textarea/textarea';
-import Input from '../input/input';
-
+import Auth from '../auth/auth';
 import template from './app.pug';
 
 class App extends Block {
@@ -12,33 +9,13 @@ class App extends Block {
     }
 
     render() {
-        this.node.innerHTML = template({
-            name: 'Чатик',
-            nums: [1,2,3,4]
-        });
+        this.node.innerHTML = template();
 
-        let button = new Button(this.node.querySelector('.js-submit-name'), {
-            text: 'Войти'
+        let auth = new Auth(this.node.querySelector('.js-chat-footer'), {
+            authorised: false
         });
-
-        let input = new Input(this.node.querySelector('.js-name'), {
-            value: '',
-            placeholder: 'Введите имя'
-        });
-
-        let buttonMessage = new Button(this.node.querySelector('.js-submit'), {
-            text: 'Отправить'
-        });
-
-        let textareaMessage = new Textarea(this.node.querySelector('.js-textarea'), {
-            placeholder: 'Введите сообщение',
-            rows: 5
-        });
-
-        button.render();
-        input.render();
-        textareaMessage.render();
-        buttonMessage.render();
+        
+        auth.render();
     }
 
 }

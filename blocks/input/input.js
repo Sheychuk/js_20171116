@@ -1,5 +1,7 @@
 import Block from '../block';
 
+import template from './input.pug';
+
 export default class Input extends Block {
 
     constructor(node, options = {}) {
@@ -7,8 +9,10 @@ export default class Input extends Block {
     }
 
     render() {
-        this.node.innerHTML = `
-        <input class="input" value="${this.options.value}" placeholder="${this.options.placeholder}"/>`;
+        this.node.innerHTML = this.node.innerHTML = template({
+            value: this.options.value,
+            placeholder: this.options.placeholder
+        });
     }
 
 }
