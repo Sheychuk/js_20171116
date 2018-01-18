@@ -1,5 +1,7 @@
 import Block from '../block';
 import Auth from '../auth/auth';
+import Chat from '../chat/chat';
+
 import template from './app.pug';
 
 class App extends Block {
@@ -14,8 +16,11 @@ class App extends Block {
         let auth = new Auth(this.node.querySelector('.js-chat-footer'), {
             authorised: false
         });
+
+        let chat = new Chat(this.node.querySelector('.js-messages'), {});
         
         auth.render();
+        chat.render();
     }
 
 }

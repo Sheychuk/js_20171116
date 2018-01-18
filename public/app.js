@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -325,7 +325,7 @@ function pug_rethrow(err, filename, lineno, str){
     throw err;
   }
   try {
-    str = str || __webpack_require__(12).readFileSync(filename, 'utf8')
+    str = str || __webpack_require__(16).readFileSync(filename, 'utf8')
   } catch (ex) {
     pug_rethrow(err, null, lineno)
   }
@@ -368,19 +368,19 @@ var _block = __webpack_require__(0);
 
 var _block2 = _interopRequireDefault(_block);
 
-var _button = __webpack_require__(5);
+var _button = __webpack_require__(6);
 
 var _button2 = _interopRequireDefault(_button);
 
-var _input = __webpack_require__(6);
+var _input = __webpack_require__(7);
 
 var _input2 = _interopRequireDefault(_input);
 
-var _textarea = __webpack_require__(7);
+var _textarea = __webpack_require__(9);
 
 var _textarea2 = _interopRequireDefault(_textarea);
 
-var _auth = __webpack_require__(8);
+var _auth = __webpack_require__(10);
 
 var _auth2 = _interopRequireDefault(_auth);
 
@@ -447,13 +447,87 @@ exports.default = Auth;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var pug = __webpack_require__(1);
+"use strict";
 
-function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv class=\"chat\"\u003E\u003Cdiv class=\"chat_container\"\u003E\u003Cdiv class=\"chat__inner\"\u003E\u003Cdiv class=\"messages\"\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"chat__footer js-chat-footer\"\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
-module.exports = template;
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _block = __webpack_require__(0);
+
+var _block2 = _interopRequireDefault(_block);
+
+var _message = __webpack_require__(8);
+
+var _message2 = _interopRequireDefault(_message);
+
+var _chat = __webpack_require__(12);
+
+var _chat2 = _interopRequireDefault(_chat);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Chat = function (_Block) {
+    _inherits(Chat, _Block);
+
+    function Chat(node) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+        _classCallCheck(this, Chat);
+
+        return _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this, node, options));
+    }
+
+    _createClass(Chat, [{
+        key: 'render',
+        value: function render() {
+            var authorised = this.options.authorised;
+
+
+            this.node.innerHTML = (0, _chat2.default)();
+
+            var message = new _message2.default(this.node.querySelector('.js-chat'), {
+                isSend: false,
+                user: 'User Name',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            });
+
+            var message2 = new _message2.default(this.node.querySelector('.js-chat'), {
+                isSend: true,
+                user: 'You',
+                message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            });
+
+            message.render();
+            // message2.render();
+        }
+    }]);
+
+    return Chat;
+}(_block2.default);
+
+exports.default = Chat;
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var pug = __webpack_require__(1);
+
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv class=\"chat\"\u003E\u003Cdiv class=\"chat_container\"\u003E\u003Cdiv class=\"chat__inner\"\u003E\u003Cdiv class=\"messages js-messages\"\u003E\u003C\u002Fdiv\u003E\u003Cdiv class=\"chat__footer js-chat-footer\"\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
+module.exports = template;
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -469,7 +543,11 @@ var _auth = __webpack_require__(2);
 
 var _auth2 = _interopRequireDefault(_auth);
 
-var _app = __webpack_require__(3);
+var _chat = __webpack_require__(3);
+
+var _chat2 = _interopRequireDefault(_chat);
+
+var _app = __webpack_require__(4);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -501,7 +579,10 @@ var App = function (_Block) {
                 authorised: false
             });
 
+            var chat = new _chat2.default(this.node.querySelector('.js-messages'), {});
+
             auth.render();
+            chat.render();
         }
     }]);
 
@@ -514,7 +595,7 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -530,7 +611,7 @@ var _block = __webpack_require__(0);
 
 var _block2 = _interopRequireDefault(_block);
 
-var _button = __webpack_require__(9);
+var _button = __webpack_require__(11);
 
 var _button2 = _interopRequireDefault(_button);
 
@@ -568,7 +649,7 @@ var Button = function (_Block) {
 exports.default = Button;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -584,7 +665,7 @@ var _block = __webpack_require__(0);
 
 var _block2 = _interopRequireDefault(_block);
 
-var _input = __webpack_require__(10);
+var _input = __webpack_require__(13);
 
 var _input2 = _interopRequireDefault(_input);
 
@@ -623,7 +704,7 @@ var Input = function (_Block) {
 exports.default = Input;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -639,7 +720,63 @@ var _block = __webpack_require__(0);
 
 var _block2 = _interopRequireDefault(_block);
 
-var _textarea = __webpack_require__(11);
+var _message = __webpack_require__(14);
+
+var _message2 = _interopRequireDefault(_message);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Message = function (_Block) {
+    _inherits(Message, _Block);
+
+    function Message(node) {
+        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+        _classCallCheck(this, Message);
+
+        return _possibleConstructorReturn(this, (Message.__proto__ || Object.getPrototypeOf(Message)).call(this, node, options));
+    }
+
+    _createClass(Message, [{
+        key: 'render',
+        value: function render() {
+            this.node.appendChild((0, _message2.default)({
+                isSend: this.options.isSend,
+                user: this.options.user,
+                message: this.options.message
+            }));
+        }
+    }]);
+
+    return Message;
+}(_block2.default);
+
+exports.default = Message;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _block = __webpack_require__(0);
+
+var _block2 = _interopRequireDefault(_block);
+
+var _textarea = __webpack_require__(15);
 
 var _textarea2 = _interopRequireDefault(_textarea);
 
@@ -678,7 +815,7 @@ var Textarea = function (_Block) {
 exports.default = Textarea;
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pug = __webpack_require__(1);
@@ -687,7 +824,7 @@ function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_ht
 module.exports = template;
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pug = __webpack_require__(1);
@@ -696,7 +833,16 @@ function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var l
 module.exports = template;
 
 /***/ }),
-/* 10 */
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var pug = __webpack_require__(1);
+
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pug_html + "\u003Cdiv class=\"js-chat\"\u003E\u003C\u002Fdiv\u003E";;return pug_html;};
+module.exports = template;
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pug = __webpack_require__(1);
@@ -705,7 +851,16 @@ function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var l
 module.exports = template;
 
 /***/ }),
-/* 11 */
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var pug = __webpack_require__(1);
+
+function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (isSend, message, user) {pug_html = pug_html + "\u003Cdiv" + (pug.attr("class", pug.classes(["message",isSend ? 'message_send' : 'message_receive'], [false,true]), false, true)) + "\u003E\u003Cdiv class=\"message__header\"\u003E" + (pug.escape(null == (pug_interp = user) ? "" : pug_interp)) + "\u003C\u002Fdiv\u003E\u003Cdiv class=\"message__body\"\u003E" + (pug.escape(null == (pug_interp = message) ? "" : pug_interp)) + "\u003C\u002Fdiv\u003E\u003C\u002Fdiv\u003E";}.call(this,"isSend" in locals_for_with?locals_for_with.isSend:typeof isSend!=="undefined"?isSend:undefined,"message" in locals_for_with?locals_for_with.message:typeof message!=="undefined"?message:undefined,"user" in locals_for_with?locals_for_with.user:typeof user!=="undefined"?user:undefined));;return pug_html;};
+module.exports = template;
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pug = __webpack_require__(1);
@@ -714,7 +869,7 @@ function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_ht
 module.exports = template;
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
