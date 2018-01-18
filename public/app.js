@@ -746,11 +746,11 @@ var Message = function (_Block) {
     _createClass(Message, [{
         key: 'render',
         value: function render() {
-            this.node.appendChild((0, _message2.default)({
+            this.node.innerHTML = (0, _message2.default)({
                 isSend: this.options.isSend,
                 user: this.options.user,
                 message: this.options.message
-            }));
+            });
         }
     }]);
 
